@@ -705,16 +705,125 @@
     .delay-4 { animation-delay: 0.55s; }
     .delay-5 { animation-delay: 0.7s; }
 
-    /* RESPONSIVE */
+    /* RESPONSIVE — tablet */
     @media (max-width: 900px) {
       nav { padding: 1.2rem 1.5rem; }
       .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; }
       .hero-right { align-items: center; }
       .about-grid, .exp-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .projects-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr 1fr; }
       section { padding: 5rem 1.5rem; }
       .contact-inner { max-width: 100%; }
       footer { padding: 1.5rem; }
+    }
+
+    /* RESPONSIVE — mobile */
+    @media (max-width: 600px) {
+      /* Hide custom cursor on touch */
+      .cursor, .cursor-ring { display: none; }
+      body { cursor: auto; }
+      a, button { cursor: pointer; }
+
+      /* Nav: logo + hamburger only */
+      nav {
+        padding: 1rem 1.2rem;
+        gap: 0;
+      }
+      .nav-links {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(10,10,15,0.97);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        z-index: 200;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 1.1rem; letter-spacing: 0.1em; }
+      .nav-hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 300;
+        padding: 4px;
+      }
+      .nav-hamburger span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--accent);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+      .nav-hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .nav-hamburger.active span:nth-child(2) { opacity: 0; }
+      .nav-hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+      /* Hero */
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 6rem 1.2rem 3rem;
+        gap: 2rem;
+        min-height: auto;
+      }
+      .hero-name { font-size: clamp(3rem, 14vw, 4.5rem); margin-top: 1.5rem; }
+      .hero-desc { font-size: 0.8rem; max-width: 100%; }
+      .hero-actions { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+      .hero-actions .btn-primary,
+      .hero-actions .btn-ghost { width: 100%; text-align: center; }
+      .hero-bg-circle { width: 300px; height: 300px; left: 50%; top: 30%; }
+
+      /* Sections */
+      section { padding: 4rem 1.2rem; }
+
+      /* About */
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+
+      /* Projects header */
+      #projetos > div:first-child {
+        padding: 0 1.2rem 2.5rem !important;
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 1rem;
+      }
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card { padding: 1.8rem 1.2rem; }
+
+      /* Experience — sticky only on desktop, scroll on mobile */
+      .exp-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .exp-sticky {
+        position: relative;
+        top: auto;
+      }
+
+      /* Timeline */
+      .timeline-header { grid-template-columns: 1fr; gap: 0.3rem; }
+      .timeline-period { white-space: normal; }
+      .timeline-company { font-size: 0.95rem; }
+
+      /* Contact */
+      .contact-inner { max-width: 100%; }
+      .contact-title { font-size: clamp(2.5rem, 11vw, 4rem); }
+      .contact-link-left { gap: 0.8rem; flex-direction: column; align-items: flex-start; }
+      .contact-platform { width: auto; }
+      .contact-handle { font-size: 0.85rem; }
+      .contact-link { padding: 1.2rem 0; }
+      .contact-link:hover { padding-left: 0; }
+
+      /* Footer */
+      footer {
+        padding: 1.2rem;
+        flex-direction: column;
+        gap: 0.8rem;
+        text-align: center;
+      }
+
+      /* Section title size */
+      .section-title { font-size: clamp(2rem, 10vw, 2.8rem); }
     }
 
     /* SCROLL REVEAL */
