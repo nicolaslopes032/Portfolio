@@ -836,3 +836,21 @@
       opacity: 1;
       transform: translateY(0);
     }
+    /* Download link below each timeline item */
+    .timeline-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.9rem;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      opacity: 0.75;
+      transition: opacity 0.2s, gap 0.2s;
+    }
+    .timeline-download:hover {
+      opacity: 1;
+      gap: 0.6rem;
+    }
