@@ -409,8 +409,8 @@
     }
 
     .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      display: flex;
+      flex-direction: row;
       gap: 1.5px;
       background: var(--border);
     }
@@ -422,6 +422,8 @@
       overflow: hidden;
       transition: background 0.3s;
       cursor: none;
+      flex: 1 1 0;
+      min-width: 0;
     }
     .project-card:hover { background: var(--surface); }
 
@@ -790,8 +792,8 @@
         align-items: flex-start !important;
         gap: 1rem;
       }
-      .projects-grid { grid-template-columns: 1fr; }
-      .project-card { padding: 1.8rem 1.2rem; }
+      .projects-grid { flex-direction: column; }
+      .project-card { flex: unset; padding: 1.8rem 1.2rem; }
 
       /* Experience — sticky only on desktop, scroll on mobile */
       .exp-grid { grid-template-columns: 1fr; gap: 2rem; }
